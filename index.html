@@ -9,7 +9,7 @@
 <body class="bg-slate-900 text-white min-h-screen flex flex-col items-center justify-center p-4">
 
   <div class="bg-slate-800 p-6 rounded-2xl shadow-xl w-full max-w-md text-center border border-slate-700">
-    <h1 class="text-2xl font-bold mb-4 text-amber-400">🏎️ Sorteio de Carros</h1>
+    <h1 class="text-2xl font-bold mb-4 text-amber-400"> Sorteio de Carros</h1>
     
     <!-- Seleção de Categoria -->
     <label for="classeSelect" class="block text-sm font-medium mb-2 text-slate-300">Escolha a Classe:</label>
@@ -22,11 +22,12 @@
       <option value="S2">Classe S2</option>
       <option value="R">Classe R</option>
       <option value="X">Classe X</option>
+      <option value="TODAS">Todas as classes</option>
     </select>
 
     <!-- Botão de Sorteio -->
     <button onclick="sortear()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3 px-6 rounded-lg transition-all active:scale-95 shadow-lg">
-      🎲 Sortear Carro
+      Sortear Carro
     </button>
 
     <!-- Resultado -->
@@ -4494,7 +4495,9 @@
 
     function sortear() {
   const classeEscolhida = document.getElementById("classeSelect").value;
-  const filtrados = carros.filter(c => c["PI Class"] === classeEscolhida);
+  const filtrados = classeEscolhida === "TODAS"
+  ? carros
+    : carros.filter(c => c["PI Class"] === classeEscolhida);
   const resDiv = document.getElementById("resultado");
 
   if (filtrados.length === 0) {
