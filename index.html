@@ -4507,7 +4507,8 @@
 
   const imgHtml = sorteado.img
     ? `<img src="${basePath}${sorteado.img}" alt="${sorteado.Carro}"
-         class="w-full h-48 object-cover rounded-lg mb-3 border border-slate-600"
+         class="mx-auto rounded-lg mb-3 border border-slate-600"
+         style="width:100%; max-width:320px; height:auto;"
          onerror="this.style.display='none'; document.getElementById('imgFallback').style.display='block';">`
     : "";
 
